@@ -3,6 +3,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { TestBed } from '@angular/core/testing';
 
 import { FeedService } from './feed.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 describe('FeedService', () => {
 
@@ -42,6 +43,25 @@ describe('FeedService', () => {
     req.flush(mockDB);
 
     httpTestingController.verify();
+
+  });
+
+  it('should test for network error', () => {
+    service.getFeed(0, 'fashion').subscribe(
+      () => fail(),
+      (error: HttpErrorResponse) => {
+        expect(error.status).toEqual(500);
+        expect(error.error.message).toEqual('Internal Server Error');
+      }
+    );
+
+    const req = httpTestingController
+      .expectOne('https://api.fashbash.co/api/feed?page=0&categories=fashion');
+
+    const err =
+      new ErrorEvent('server error', { message: 'Internal Server Error' });
+
+    req.error(err, { status: 500 });
 
   });
 
