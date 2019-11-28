@@ -4,10 +4,6 @@ import { MasterService } from './master.service';
 
 describe('MasterService', () => {
 
-  const consoleMock = {
-    log: () => { }
-  };
-
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
@@ -28,7 +24,7 @@ describe('MasterService', () => {
 
     service.logValue(val);
 
-    expect(window.console.log).toHaveBeenCalled();
+    expect(window.console.log).toHaveBeenCalledTimes(1);
 
   });
 });
