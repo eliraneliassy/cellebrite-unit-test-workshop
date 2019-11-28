@@ -1,13 +1,18 @@
 <router-outlet></router-outlet>
 
-<div class="fashion-items">
-  <app-item *ngFor="let item of (fashionItems$ | async)" [item]="item">
 
-  </app-item>
-</div>
+<mat-tab-group>
+  <mat-tab label="Fashion">
+    <app-item *ngFor="let item of (fashionItems$ | async)" [item]="item">
 
-<div class="sports-items">
-  <app-item *ngFor="let item of (sportItems$ | async)" [item]="item">
+    </app-item>
+  </mat-tab>
+  <mat-tab label="Sports">
+    <div class="sports-items">
+      <app-item *ngFor="let item of (sportItems$ | async)" [item]="item">
 
-  </app-item>
-</div>
+      </app-item>
+    </div>
+  </mat-tab>
+
+</mat-tab-group>
