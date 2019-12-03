@@ -1,3 +1,4 @@
+import { DiscountPipe } from './discount.pipe';
 import { sportsDB } from './sportsDB';
 import { fashionDB } from './fashionDB';
 import { FeedService } from './feed.service';
@@ -35,7 +36,8 @@ describe('AppComponent', () => {
       ],
       declarations: [
         AppComponent,
-        ItemComponent
+        ItemComponent,
+        DiscountPipe
       ],
       providers: [
         { provide: FeedService, useValue: feedServiceMock }

@@ -1,3 +1,4 @@
+import { DiscountPipe } from './../discount.pipe';
 import { fashionDB } from './../fashionDB';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
@@ -13,7 +14,7 @@ describe('ItemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ItemComponent]
+      declarations: [ItemComponent, DiscountPipe]
     })
       .compileComponents();
   }));
