@@ -4,7 +4,8 @@
   <mat-tab-group>
     <mat-tab label="Fashion">
       <div class="row">
-        <app-item *ngFor="let item of (fashionItems$ | async)" [item]="item" class="col-3">
+        <app-item *ngFor="let item of (fashionItems$ | async)" [item]="item" class="col-3"
+        appChangeColor>
         </app-item>
       </div>
     </mat-tab>

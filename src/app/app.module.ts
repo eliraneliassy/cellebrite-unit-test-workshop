@@ -7,11 +7,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { ItemComponent } from './item/item.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
+import { ChangeColorDirective } from './change-color.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ItemComponent
+    ItemComponent,
+    ChangeColorDirective
   ],
   imports: [
     BrowserModule,
