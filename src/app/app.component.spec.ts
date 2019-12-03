@@ -32,8 +32,5 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render component with 24 items and 2 tabs', () => {
-    
-  })
 
 });
