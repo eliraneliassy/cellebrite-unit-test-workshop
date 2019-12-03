@@ -3,7 +3,7 @@ import { fashionDB } from './fashionDB';
 import { FeedService } from './feed.service';
 import { ItemComponent } from './item/item.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { TestBed, async, ComponentFixture, fakeAsync, flush } from '@angular/core/testing';
+import { TestBed, async, ComponentFixture, fakeAsync, flush, flushMicrotasks } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -74,7 +74,7 @@ describe('AppComponent', () => {
 
   });
 
-  xit('should show sports items after clicking the sports tab', () => {
+  it('should show sports items after clicking the sports tab', fakeAsync(() => {
 
     feedService.getFeed(0, 'sports').subscribe(res => {
 
@@ -83,6 +83,8 @@ describe('AppComponent', () => {
       tabs[1].nativeElement.click();
 
       fixture.detectChanges();
+
+      flush();
 
       const items = el.queryAll(By.css('.col-3'));
       const firstItem = items[0];
@@ -96,7 +98,7 @@ describe('AppComponent', () => {
     });
 
 
-  });
+  }));
 
 
 });

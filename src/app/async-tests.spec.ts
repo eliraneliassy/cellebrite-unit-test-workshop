@@ -2,7 +2,7 @@ import { of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 import { fakeAsync, tick, flush } from '@angular/core/testing';
 
-fdescribe('AsyncTests', () => {
+describe('AsyncTests', () => {
 
     it('async test - set timout', (done: DoneFn) => {
         let flag = false;
@@ -62,4 +62,5 @@ fdescribe('AsyncTests', () => {
 
 
     }));
+
 });
