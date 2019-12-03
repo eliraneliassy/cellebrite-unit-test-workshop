@@ -3,7 +3,7 @@ import { fashionDB } from './fashionDB';
 import { FeedService } from './feed.service';
 import { ItemComponent } from './item/item.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { TestBed, async, ComponentFixture } from '@angular/core/testing';
+import { TestBed, async, ComponentFixture, fakeAsync, flush } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -74,9 +74,26 @@ describe('AppComponent', () => {
 
   });
 
-  it('should show sports items after clicking the sports tab', () => {
-    
-    
+  xit('should show sports items after clicking the sports tab', () => {
+
+    feedService.getFeed(0, 'sports').subscribe(res => {
+
+      const tabs = el.queryAll(By.css('.mat-tab-label'));
+
+      tabs[1].nativeElement.click();
+
+      fixture.detectChanges();
+
+      const items = el.queryAll(By.css('.col-3'));
+      const firstItem = items[0];
+
+      const titleOfFirstItem = firstItem.query(By.css('.title'));
+      expect(titleOfFirstItem.nativeElement.innerText)
+        .toEqual(sportsDB[0].description);
+
+      expect(items.length).toEqual(sportsDB.length);
+
+    });
 
 
   });
