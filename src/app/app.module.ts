@@ -8,12 +8,14 @@ import { ItemComponent } from './item/item.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ChangeColorDirective } from './change-color.directive';
+import { DiscountPipe } from './discount.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemComponent,
-    ChangeColorDirective
+    ChangeColorDirective,
+    DiscountPipe
   ],
   imports: [
     BrowserModule,

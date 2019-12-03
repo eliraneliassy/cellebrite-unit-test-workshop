@@ -8,7 +8,7 @@
     </div>
 
     <div class="price">
-        {{item.price | currency}}
+        {{item.price | currency | discount:10}}
     </div>
 
     <button (click)="addToCartClicked()">Add To Cart</button>
